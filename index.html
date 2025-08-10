@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윌리엄 네프콘 문서 모음</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* 사이드바 스타일 */
+        .sidebar {
+            width: 350px;
+            background: white;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .sidebar-header h1 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-header .subtitle {
+            font-size: 0.9em;
+            color: #bdc3c7;
+        }
+        
+        .stats {
+            text-align: center;
+            margin: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .stats-number {
+            font-size: 1.8em;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .stats-label {
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        
+        /* 검색 영역 */
+        .search-section {
+            padding: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 0.95em;
+            outline: none;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .search-input:focus {
+            border-color: #3498db;
+            background: white;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #95a5a6;
+        }
+        
+        /* 카테고리 네비게이션 */
+        .category-nav {
+            padding: 20px;
+        }
+        
+        .category-nav h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-item {
+            margin-bottom: 8px;
+        }
+        
+        .category-link {
+            display: block;
+            padding: 10px 15px;
+            color: #34495e;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+        
+        .category-link:hover {
+            background-color: #f8f9fa;
+            border-left-color: #3498db;
+            color: #2c3e50;
+        }
+        
+        .category-link.active {
+            background-color: #3498db;
+            color: white;
+            border-left-color: #2980b9;
+        }
+        
+        /* 카테고리 호버 시 목차 프리뷰 */
+        .category-toc-preview {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 300px;
+            background: white;
+            border: 1px solid #ecf0f1;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .category-item {
+            position: relative;
+        }
+        
+        .category-item:hover .category-toc-preview {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .toc-preview-header {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .toc-preview-content {
+            padding: 15px;
+        }
+        
+        .toc-preview-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 0.9em;
+        }
+        
+        .toc-preview-item:last-child {
+            border-bottom: none;
+        }
+        
+        .toc-preview-item a {
+            color: #34495e;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .toc-preview-item a:hover {
+            color: #3498db;
+        }
+        
+        /* 메인 콘텐츠 영역 */
+        .main-content {
+            margin-left: 350px;
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .content-header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .content-header h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .content-header p {
+            color: #7f8c8d;
+            font-size: 1em;
+        }
+        
+        /* 문서 리스트 */
+        .document-list {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .list-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .list-content {
+            padding: 0;
+        }
+        
+        .doc-item {
+            border-bottom: 1px solid #ecf0f1;
+            transition: all 0.3s;
+        }
+        
+        .doc-item:last-child {
+            border-bottom: none;
+        }
+        
+        .doc-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .doc-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            color: #2c3e50;
+            transition: all 0.3s;
+        }
+        
+        .doc-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .toc-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .toc-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+        
+        .doc-info {
+            flex: 1;
+        }
+        
+        .doc-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .doc-description {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+        
+        .doc-arrow {
+            color: #bdc3c7;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+        
+        .doc-link:hover .doc-arrow {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        .doc-link:hover .doc-title {
+            color: #3498db;
+        }
+        
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                max-height: 400px;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .content-header,
+            .document-list {
+                margin: 10px;
+            }
+        }
+        
+        /* 스크롤바 스타일링 */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* 애니메이션 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .doc-item {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        /* 팝업 모달 스타일 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay.show {
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow: hidden;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-body {
+            padding: 25px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-list li {
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .toc-list li:hover {
+            background: #f8f9fa;
+            border-left-color: #3498db;
+        }
+        
+        .toc-list a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+        }
+        
+        .toc-list a:hover {
+            color: #3498db;
+        }
+        
+        .toc-level-1 { margin-left: 0px; font-weight: bold; }
+        .toc-level-2 { margin-left: 20px; }
+        .toc-level-3 { margin-left: 40px; }
+        .toc-level-4 { margin-left: 60px; }
+    </style>
+</head>
+<body>
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>📚 윌리엄 네프콘</h1>
+            <div class="subtitle">문서 모음</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stats-number">2</div>
+            <div class="stats-label">총 문서 수</div>
+        </div>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="🔍 문서 검색..." id="searchInput">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+        
+        <div class="category-nav">
+            <h3>📂 카테고리</h3>
+            <ul class="category-list">
+                <li class="category-item">
+                    <a href="#all" class="category-link active" data-category="all">📋 전체 문서</a>
+                </li>
+                <li class="category-item">
+                    <a href="#investment" class="category-link" data-category="investment">💰 투자 및 부자되기</a>
+                    <div class="category-toc-preview">
+                        <div class="toc-preview-header">💰 투자 및 부자되기 문서 목차</div>
+                        <div class="toc-preview-content" id="investment-toc-preview">
+                            <!-- JavaScript로 동적 생성 -->
+                        </div>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <a href="#economics" class="category-link" data-category="economics">📊 경제 및 거시경제</a>
+                    <div class="category-toc-preview">
+                        <div class="toc-preview-header">📊 경제 및 거시경제 문서 목차</div>
+                        <div class="toc-preview-content" id="economics-toc-preview">
+                            <!-- JavaScript로 동적 생성 -->
+                        </div>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <a href="#education" class="category-link" data-category="education">📚 교육 및 학습</a>
+                    <div class="category-toc-preview">
+                        <div class="toc-preview-header">📚 교육 및 학습 문서 목차</div>
+                        <div class="toc-preview-content" id="education-toc-preview">
+                            <!-- JavaScript로 동적 생성 -->
+                        </div>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <a href="#manual" class="category-link" data-category="manual">📖 매뉴얼 및 가이드</a>
+                    <div class="category-toc-preview">
+                        <div class="toc-preview-header">📖 매뉴얼 및 가이드 문서 목차</div>
+                        <div class="toc-preview-content" id="manual-toc-preview">
+                            <!-- JavaScript로 동적 생성 -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 메인 콘텐츠 -->
+    <div class="main-content">
+        
+        <div class="document-list">
+            <div class="list-header">
+                📚 문서 목록
+            </div>
+            <div class="list-content" id="documentList">
+                <div class="doc-item" data-category="investment" data-title="30년 만에 오는 큰 부자될 기회">
+                    <div class="doc-link">
+                        <div class="doc-info">
+                            <div class="doc-title">30년 만에 오는 큰 부자될 기회</div>
+                            <div class="doc-description">투자 전략 및 부자되기 가이드</div>
+                        </div>
+                        <div class="doc-actions">
+                            <button class="toc-button" onclick="showTocModal('30년 만에 오는 큰 부자될 기회')">📋 목록 리스트</button>
+                            <a href="30년 만에 오는 큰 부자될 기회.html" style="color: #bdc3c7; text-decoration: none; font-size: 1.2em; transition: all 0.3s;" onmouseover="this.style.color='#3498db'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='#bdc3c7'; this.style.transform='translateX(0)'">→</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doc-item" data-category="education" data-title="금융문맹 탈출하기">
+                    <div class="doc-link">
+                        <div class="doc-info">
+                            <div class="doc-title">금융문맹 탈출하기</div>
+                            <div class="doc-description">금융 교육 및 용어 설명</div>
+                        </div>
+                        <div class="doc-actions">
+                            <button class="toc-button" onclick="showTocModal('금융문맹 탈출하기')">📋 목록 리스트</button>
+                            <a href="금융문맹 탈출하기.html" style="color: #bdc3c7; text-decoration: none; font-size: 1.2em; transition: all 0.3s;" onmouseover="this.style.color='#3498db'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='#bdc3c7'; this.style.transform='translateX(0)'">→</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- TOC 모달 -->
+    <div class="modal-overlay" id="tocModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">📋 문서 목차</h3>
+                <button class="modal-close" onclick="closeTocModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- JavaScript로 동적 생성 -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 문서 목차 정보 (Python에서 생성된 데이터)
+        const docTocInfo = {"30년 만에 오는 큰 부자될 기회": [[1, "30년에 한번 오는 큰 부자될 기회"], [1, "미국 국가부채 폭발과 달러의 종말 금융질서의 대격변 속 부자될 큰 기회"], [1, "현금의 종말과 새로운 부를 만드는 자산으로의 전환"], [1, "AI가 불러올 역사상 최악의 고용 대재앙 시대"], [1, "블랙록과 JP모건의 숨겨진 전략 모든 자산의 토큰화가 금융 역사를 다시쓰게 될거야"], [1, "중산층이 사라지는 미래! 상류층과 빈민층만 남는 부의 양극화"], [1, "전통 부동산과 국채의 위기! 새로운 자산 시스템의 탄생 속 큰 부자될 엄청난 기회"], [1, "전통 부동산과 국채의 위기! 새로운 자산 시스템의 탄생 속 큰 부자될 엄청난 기회 - 추가설명 후속편"], [1, "금융 패권자들이 준비중인 미래의 거대한 변화"], [1, "국가 주권의 약화와 글로벌 기업들이 갖게될 엄청난 힘"], [1, "국가보다 강해진 기업들이 개인 자산을 지배한다"], [1, "물과 식량, 석유를 넘어선 가장 강력한 전략 자산의 등장"]], "금융문맹 탈출하기": [[1, "실패 없이 부자되는 원리와 방법"], [1, "너 아직도 한국 주식만 해? 정신차려"], [1, "은행이 절대 말하지 않는 비밀"], [1, "레버리지 욕심 부리다 인생까지 날리는 법"], [1, "부자는 시간이 돈을 벌게 하고 가난한 사람은 평생 노동으로 돈을 번다"], [1, "몰빵 투자가 금융문맹의 돈을 잃게 만드는 이유"], [1, "공매도 - 왜 너가 사면 떨어지고 팔면 오를까? 기관이 돈 버는 진짜 방법"], [1, "부자들이 절대로 큰돈을 잃지 않는 비법"], [1, "ETF (상장지수펀드) 개별 종목에 물려본 사람이 알아야 할 투자 필수템"], [1, "이것만 알면 주식 무조건 실패하지 않는다"], [1, "이 주식이 싼지 비싼지 10초 만에 판단하는 방법"], [1, "금융 마약 레버리지"], [1, "부자들은 왜 주식만 하지않고 항상 채권을 함께 가지고 있을까!"], [1, "부자들은 왜 잠자는 동안에도 돈을 벌 수 있을까?"], [1, "미래에도 유일하게 남을 안전자산 금 - 어떻게 보유해야 하는가?"], [1, "미국이 달러를 무한대로 찍어내도 망하지 않았던 이유"], [1, "부자들이 평생 자산증식 될 수밖에 없는 진짜 이유"], [1, "디폴트와 국가부도! 한 나라가 망한다는건 어떤 의미일까?"], [1, "나스닥(NASDAQ)과 뉴욕증권거래소(NYSE)의 실제 차이를 알려줄게!"], [1, "금융부자들은 경제의 흐름을 읽고 금융문맹은 흐름에 휩쓸린다"], [1, "금융부자들은 왜 환율이 오르고 내리는지 알지만! 금융문맹은 그저...뉴스만 본다"], [1, "부자들은 왜 환율의 방향을 미리 알 수 있을까?"], [1, "금융부자들이 경제 위기를 미리 알고 대응하는 방법 - 금리와 주식의 관계"]]};
+        
+        // 카테고리별 목차 프리뷰 생성
+        function createTocPreview(category) {
+            const previewElement = document.getElementById(category + '-toc-preview');
+            if (!previewElement) return;
+            
+            // 해당 카테고리의 문서들 찾기
+            const categoryDocs = Array.from(docItems).filter(item => 
+                item.getAttribute('data-category') === category
+            );
+            
+            let previewHTML = '';
+            categoryDocs.forEach(docItem => {
+                const docTitle = docItem.querySelector('.doc-title').textContent;
+                const tocItems = docTocInfo[docTitle] || [];
+                
+                previewHTML += `<div class="toc-preview-item">
+                    <strong>📄 ${docTitle}</strong>`;
+                
+                if (tocItems.length > 0) {
+                    previewHTML += '<div style="margin-left: 15px; margin-top: 5px;">';
+                    tocItems.slice(0, 5).forEach((tocItem, index) => {
+                        const level = tocItem[0];
+                        const text = tocItem[1];
+                        const marginLeft = (level - 1) * 10;
+                        previewHTML += `<div class="toc-preview-item" style="margin-left: ${marginLeft}px;">
+                            <a href="${docTitle}.html" title="${text}">• ${text}</a>
+                        </div>`;
+                    });
+                    if (tocItems.length > 5) {
+                        previewHTML += `<div class="toc-preview-item" style="margin-left: 15px; color: #7f8c8d; font-size: 0.8em;">
+                            ... 외 ${tocItems.length - 5}개 항목
+                        </div>`;
+                    }
+                    previewHTML += '</div>';
+                }
+                
+                previewHTML += '</div>';
+            });
+            
+            previewElement.innerHTML = previewHTML;
+        }
+        
+        // 카테고리 필터링
+        const categoryLinks = document.querySelectorAll('.category-link');
+        const docItems = document.querySelectorAll('.doc-item');
+        const documentList = document.getElementById('documentList');
+        const contentHeader = document.querySelector('.content-header h2');
+        const contentDescription = document.querySelector('.content-header p');
+        
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 활성 카테고리 표시
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                const categoryText = this.textContent;
+                
+                // 헤더 업데이트
+                contentHeader.textContent = categoryText;
+                if (category === 'all') {
+                    contentDescription.textContent = '좌측 사이드바에서 카테고리를 선택하거나 검색하여 원하는 문서를 찾아보세요';
+                } else {
+                    contentDescription.textContent = '해당 카테고리의 문서들입니다. 검색하여 원하는 문서를 찾아보세요';
+                }
+                
+                // 문서 필터링
+                docItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease-in';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // 검색 기능
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            docItems.forEach(item => {
+                const title = item.getAttribute('data-title');
+                const category = item.getAttribute('data-category');
+                
+                if (title.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.5s ease-in';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // 검색 시 전체 문서 카테고리 활성화
+            if (searchTerm) {
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                document.querySelector('[data-category="all"]').classList.add('active');
+                contentHeader.textContent = '🔍 검색 결과';
+                contentDescription.textContent = `"${searchTerm}" 검색 결과입니다`;
+            }
+        });
+        
+        // 문서 아이템 호버 효과
+        docItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+        
+        // TOC 모달 표시 함수
+        function showTocModal(docTitle) {
+            const modal = document.getElementById('tocModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            // 모달 제목 설정
+            modalTitle.textContent = `📋 ${docTitle} 목차`;
+            
+            // TOC 내용 생성
+            const tocItems = docTocInfo[docTitle] || [];
+            let tocHTML = '';
+            
+            if (tocItems.length > 0) {
+                tocHTML = '<ul class="toc-list">';
+                tocItems.forEach((tocItem, index) => {
+                    const level = tocItem[0];
+                    const text = tocItem[1];
+                    const safeText = text.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                    tocHTML += `<li class="toc-level-${level}">
+                        <a href="${docTitle}.html#${safeText}" target="_blank">${text}</a>
+                    </li>`;
+                });
+                tocHTML += '</ul>';
+            } else {
+                tocHTML = '<p style="text-align: center; color: #7f8c8d; padding: 20px;">목차 정보를 찾을 수 없습니다.</p>';
+            }
+            
+            modalBody.innerHTML = tocHTML;
+            
+            // 모달 표시
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+        
+        // TOC 모달 닫기 함수
+        function closeTocModal() {
+            const modal = document.getElementById('tocModal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+        
+        // 모달 외부 클릭 시 닫기
+        document.getElementById('tocModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTocModal();
+            }
+        });
+        
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTocModal();
+            }
+        });
+        
+        // 페이지 로드 시 목차 프리뷰 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            // 각 카테고리별 목차 프리뷰 생성
+            createTocPreview('investment');
+            createTocPreview('economics');
+            createTocPreview('education');
+            createTocPreview('manual');
+        });
+    </script>
+</body>
+</html>
