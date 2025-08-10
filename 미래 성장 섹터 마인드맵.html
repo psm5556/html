@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미래 성장 섹터 완전 투자 가이드 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a40 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .sector-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid #475569;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .sector-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: #06b6d4;
+        }
+        
+        .sector-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #475569;
+        }
+        
+        .sector-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+        
+        .sector-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #06b6d4;
+        }
+        
+        .market-data {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid #10b981;
+        }
+        
+        .market-data h4 {
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+        
+        /* 대장주 스타일 - 더 강조된 디자인 */
+        .flagship-section {
+            background: linear-gradient(135deg, #7c2d12, #dc2626);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 3px solid #fbbf24;
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+        }
+        
+        .flagship-section h4 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+        
+        .flagship-section h4::before {
+            content: "👑";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .flagship-item {
+            background: rgba(220, 38, 38, 0.4);
+            margin: 12px 0;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 5px solid #fbbf24;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+        
+        .flagship-item:hover {
+            background: rgba(220, 38, 38, 0.6);
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+        }
+        
+        .flagship-item::before {
+            content: "🔥";
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 1.4rem;
+            animation: flicker 2s infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* 일반 성장주 스타일 */
+        .companies-section {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #475569;
+        }
+        
+        .companies-section h4 {
+            color: #f59e0b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .companies-section h4::before {
+            content: "📈";
+            margin-right: 8px;
+        }
+        
+        .company-item {
+            background: #334155;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #8b5cf6;
+            transition: all 0.3s ease;
+        }
+        
+        .company-item:hover {
+            background: #475569;
+            transform: translateX(5px);
+        }
+        
+        .company-name {
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+        
+        .flagship-name {
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        
+        .company-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-left: 10px;
+        }
+        
+        .ticker {
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            color: #06b6d4;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-left: 8px;
+            border: 1px solid #06b6d4;
+            font-size: 0.8rem;
+        }
+        
+        /* ETF 섹션 스타일 */
+        .etf-section {
+            background: linear-gradient(135deg, #134e4a, #0f766e);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 15px 0;
+            border: 2px solid #14b8a6;
+        }
+        
+        .etf-section h4 {
+            color: #5eead4;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .etf-section h4::before {
+            content: "💎";
+            margin-right: 8px;
+        }
+        
+        .etf-item {
+            background: rgba(15, 32, 39, 0.7);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #14b8a6;
+            transition: all 0.3s ease;
+        }
+        
+        .etf-item:hover {
+            background: rgba(15, 32, 39, 0.9);
+            transform: translateX(5px);
+        }
+        
+        .etf-name {
+            font-weight: 600;
+            color: #5eead4;
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-left: 10px;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        
+        .metric {
+            display: inline-block;
+            background: #0f172a;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 4px;
+            border-left: 3px solid #06b6d4;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: #1f2937;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* 특별 카테고리 - ETF만 있는 섹션 */
+        .etf-only-section {
+            background: #374151;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #6b7280;
+        }
+        
+        .etf-only-section h4 {
+            color: #d1d5db;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .etf-only-section h4::before {
+            content: "📊";
+            margin-right: 8px;
+        }
+        
+        /* 요약 섹션 */
+        .summary-section {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .summary-section h4 {
+            color: #a78bfa;
+            margin-bottom: 10px;
+        }
+        
+        .risk-warning {
+            background: linear-gradient(135deg, #7f1d1d, #991b1b);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .risk-warning h5 {
+            color: #fca5a5;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .sectors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 스크롤 표시기 */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            transform-origin: left;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 미래 성장 섹터 완전 투자 가이드 2025</h1>
+            <p class="subtitle">월가 애널리스트 관점 | 모든 대장주와 성장주 완전 정리 | 티커 포함 | ETF 추천</p>
+        </div>
+
+        <div class="sectors-grid">
+            <!-- 1. 인공지능(AI) 및 빅데이터 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">🧠</span>
+                    <div>
+                        <div class="sector-title">1. 인공지능(AI) 및 빅데이터</div>
+                        <div style="opacity: 0.7;">연평균 149.3% 성장 전망</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">2025년 AI 시장 연평균 149.3% 성장</div>
+                    <div class="metric">금융, 헬스케어, 제조 전반 채택</div>
+                    <div class="metric">클라우드 컴퓨팅, 머신러닝 핵심</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>대장주 (Absolute Leader)</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">엔비디아 <span class="ticker">NVDA</span></div>
+                        <div class="company-desc">✓ AI 칩 시장에서 GPU로 독보적 위치</div>
+                        <div class="company-desc">✓ AI 및 고성능 컴퓨팅 칩 선두</div>
+                        <div class="company-desc">✓ 압도적 시장 점유율과 기술력</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>주요 성장주</h4>
+                    <div class="company-item">
+                        <div class="company-name">마이크로소프트 <span class="ticker">MSFT</span></div>
+                        <div class="company-desc">✓ Azure와 OpenAI를 통해 클라우드 기반 AI 솔루션 제공</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">알파벳 <span class="ticker">GOOGL</span></div>
+                        <div class="company-desc">✓ 구글 클라우드와 다중모달 LLM 연구로 AI 선도</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">아마존 <span class="ticker">AMZN</span></div>
+                        <div class="company-desc">✓ AWS로 AI 워크로드 지원, Bedrock 플랫폼으로 생성 AI 확장</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">메타 플랫폼스 <span class="ticker">META</span></div>
+                        <div class="company-desc">✓ 메타버스와 광고 최적화에 AI 활용</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">팔란티어 테크놀로지스 <span class="ticker">PLTR</span></div>
+                        <div class="company-desc">✓ 정부 및 기업 데이터 분석 전문</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">지스케일러 <span class="ticker">ZS</span></div>
+                        <div class="company-desc">✓ AI 기반 사이버보안으로 증가하는 사이버 위협 대응</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">크라우드스트라이크 <span class="ticker">CRWD</span></div>
+                        <div class="company-desc">✓ AI 기반 사이버보안으로 증가하는 사이버 위협 대응</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">팔로알토 네트웍스 <span class="ticker">PANW</span></div>
+                        <div class="company-desc">✓ AI 기반 사이버보안으로 증가하는 사이버 위협 대응</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">AIQ - Global X AI & Technology ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ AI 순수 플레이, 글로벌 다변화</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">THNQ - ROBO Global AI ETF</div>
+                        <div class="company-desc">✓ 인프라 65% + 응용 35%</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">BOTZ - Global Robotics & AI ETF</div>
+                        <div class="company-desc">✓ 로보틱스와 AI 융합</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">규제 강화, 높은 밸류에이션, AI 거품 우려</div>
+                </div>
+            </div>
+
+            <!-- 2. 반도체 및 양자 컴퓨팅 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">⚛️</span>
+                    <div>
+                        <div class="sector-title">2. 반도체 및 양자 컴퓨팅</div>
+                        <div style="opacity: 0.7;">AI 칩 36.8% 성장, 양자 초기 단계</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">AI와 고성능 컴퓨팅 수요 급증</div>
+                    <div class="metric">AI 칩 2025년 36.8% 성장 전망</div>
+                    <div class="metric">양자 컴퓨팅 암호화/최적화 돌파구</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>반도체 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">엔비디아 <span class="ticker">NVDA</span></div>
+                        <div class="company-desc">✓ AI 및 고성능 컴퓨팅 칩 절대 선두</div>
+                        <div class="company-desc">✓ GPU 기술의 압도적 우위</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>반도체 주요 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">AMD <span class="ticker">AMD</span></div>
+                        <div class="company-desc">✓ CPU와 GPU에서 AI 및 데이터센터 경쟁력</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">인텔 <span class="ticker">INTC</span></div>
+                        <div class="company-desc">✓ AI 칩과 파운드리 서비스 투자, 시장 점유율 회복 노력</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">크리도 테크놀로지 <span class="ticker">CRDO</span></div>
+                        <div class="company-desc">✓ AI 데이터센터용 고속 연결 솔루션 제공</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">아스테라 랩스 <span class="ticker">ALAB</span></div>
+                        <div class="company-desc">✓ AI 데이터센터용 고속 연결 솔루션 제공</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>양자 컴퓨팅 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">IBM <span class="ticker">IBM</span></div>
+                        <div class="company-desc">✓ 양자 컴퓨팅에서 기업 중심 솔루션 선도</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">디 웨이브 퀀텀 <span class="ticker">QBTS</span></div>
+                        <div class="company-desc">✓ 양자 컴퓨팅 초기 혁신 기업, 높은 성장 가능성</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">리게티 컴퓨팅 <span class="ticker">RGTI</span></div>
+                        <div class="company-desc">✓ 양자 컴퓨팅 초기 혁신 기업, 높은 성장 가능성</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">아이온큐 <span class="ticker">IONQ</span></div>
+                        <div class="company-desc">✓ 양자 컴퓨팅 초기 혁신 기업, 높은 성장 가능성</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">QTUM - Defiance Quantum ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 양자컴퓨팅 + 머신러닝 융합</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">SOXX - iShares Semiconductor ETF</div>
+                        <div class="company-desc">✓ 반도체 순수 플레이</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">SMH - VanEck Semiconductor ETF</div>
+                        <div class="company-desc">✓ 반도체 핵심 종목 집중</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">공급망의 지정학적 긴장, 높은 R&D 비용, 양자 컴퓨팅의 긴 상용화 시간</div>
+                </div>
+            </div>
+
+            <!-- 3. 전기차(EV) 및 배터리 기술 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">🚗</span>
+                    <div>
+                        <div class="sector-title">3. 전기차(EV) 및 배터리 기술</div>
+                        <div style="opacity: 0.7;">차세대 배터리 혁신, EV 채택 가속</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">IRA 정책에도 북미/유럽 확대</div>
+                    <div class="metric">차세대 배터리 효율성 향상</div>
+                    <div class="metric">글로벌 EV 배터리 수요 급증</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>EV 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">테슬라 <span class="ticker">TSLA</span></div>
+                        <div class="company-desc">✓ 강력한 브랜드와 수직 통합으로 EV 시장 선도</div>
+                        <div class="company-desc">✓ 전기차 시장의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>배터리 기술 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">LG 에너지 솔루션 (한국)</div>
+                        <div class="company-desc">✓ 글로벌 EV 배터리 수요로 성장</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">삼성SDI (한국)</div>
+                        <div class="company-desc">✓ 글로벌 EV 배터리 수요로 성장</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">퀀텀스케이프 <span class="ticker">QS</span></div>
+                        <div class="company-desc">✓ 고체 배터리 혁신으로 시장 변화 가능성</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">솔리드 파워 <span class="ticker">SLDP</span></div>
+                        <div class="company-desc">✓ 고체 배터리 혁신으로 시장 변화 가능성</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">DRIV - Global X Autonomous & EV ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 자율주행 + EV 융합 테마</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">LIT - Global X Lithium & Battery Tech ETF</div>
+                        <div class="company-desc">✓ 리튬 전체 사이클 커버</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">IDRV - iShares Self-Driving EV ETF</div>
+                        <div class="company-desc">✓ 자율주행 EV 전문</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">정책 변화(예: IRA 수정), 원자재 부족, EV 수요 둔화</div>
+                </div>
+            </div>
+
+            <!-- 4. 생명공학 및 합성생물학 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">🧬</span>
+                    <div>
+                        <div class="sector-title">4. 생명공학 및 합성생물학</div>
+                        <div style="opacity: 0.7;">CRISPR 혁명, 개인화 의료 혁신</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">유전자 편집(CRISPR) 발전</div>
+                    <div class="metric">개인화 의료 및 바이오 제조 혁신</div>
+                    <div class="metric">2030년까지 두 자릿수 CAGR</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>바이오테크 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">버텍스 파마슈티컬 <span class="ticker">VRTX</span></div>
+                        <div class="company-desc">✓ 낭포성 섬유증 및 유전자 편집 치료 선도</div>
+                        <div class="company-desc">✓ 생명공학 분야의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>생명공학 주요 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">리제네론 파마슈티컬 <span class="ticker">REGN</span></div>
+                        <div class="company-desc">✓ 종양학 및 희귀질환 파이프라인 강점</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">크리스퍼 테라퓨틱스 <span class="ticker">CRSP</span></div>
+                        <div class="company-desc">✓ CRISPR 기반 유전 질환 치료 선구자</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">깅코 바이오웍스 <span class="ticker">DNA</span></div>
+                        <div class="company-desc">✓ 합성생물학으로 바이오엔지니어링 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">트위스트 바이오사이언스 <span class="ticker">TWST</span></div>
+                        <div class="company-desc">✓ 합성생물학으로 바이오엔지니어링 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">템퍼스 AI</div>
+                        <div class="company-desc">✓ AI와 정밀 의료 통합으로 데이터 기반 헬스케어 제공</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">IBB - iShares Biotechnology ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 바이오테크 대표 ETF</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">XBI - SPDR S&P Biotech ETF</div>
+                        <div class="company-desc">✓ 균등 가중 바이오테크</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">ARKG - ARK Genomic Revolution ETF</div>
+                        <div class="company-desc">✓ 유전체학 혁명 테마</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">규제 장벽, 높은 R&D 비용, 유전자 편집의 윤리적 우려</div>
+                </div>
+            </div>
+
+            <!-- 5. 핀테크 및 암호화폐 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">💰</span>
+                    <div>
+                        <div class="sector-title">5. 핀테크 및 암호화폐</div>
+                        <div style="opacity: 0.7;">디지털 결제, 블록체인, DeFi 재편</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">디지털 결제, 블록체인 확산</div>
+                    <div class="metric">탈중앙화 금융(DeFi) 성장</div>
+                    <div class="metric">규제 불확실성에도 암호화폐 채택</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>핀테크 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">비자 <span class="ticker">V</span></div>
+                        <div class="company-desc">✓ 글로벌 디지털 결제 네트워크로 시장 지배</div>
+                        <div class="company-desc">✓ 디지털 결제의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>핀테크 주요 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">마스터카드 <span class="ticker">MA</span></div>
+                        <div class="company-desc">✓ 글로벌 디지털 결제 네트워크로 시장 지배</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">페이팔 <span class="ticker">PYPL</span></div>
+                        <div class="company-desc">✓ 모바일 결제 및 블록체인 통합 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">블록 <span class="ticker">SQ</span></div>
+                        <div class="company-desc">✓ 모바일 결제 및 블록체인 통합 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">코인베이스 <span class="ticker">COIN</span></div>
+                        <div class="company-desc">✓ 암호화폐 거래 및 스테이블코인 생태계 선도</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">서클</div>
+                        <div class="company-desc">✓ 암호화폐 거래 및 스테이블코인 생태계 선도</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">로빈후드 <span class="ticker">HOOD</span></div>
+                        <div class="company-desc">✓ 암호화폐 거래 및 스테이블코인 생태계 선도</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">제이피모건 체이스 <span class="ticker">JPM</span></div>
+                        <div class="company-desc">✓ 전통 은행의 블록체인 및 핀테크 솔루션 도입</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">골드만삭스 <span class="ticker">GS</span></div>
+                        <div class="company-desc">✓ 전통 은행의 블록체인 및 핀테크 솔루션 도입</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">HSBC 홀딩스 <span class="ticker">HSBC</span></div>
+                        <div class="company-desc">✓ 전통 은행의 블록체인 및 핀테크 솔루션 도입</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">씨티그룹 <span class="ticker">C</span></div>
+                        <div class="company-desc">✓ 전통 은행의 블록체인 및 핀테크 솔루션 도입</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">블랙록 <span class="ticker">BLK</span></div>
+                        <div class="company-desc">✓ 암호화폐 ETF 및 디지털 자산 관리 확장</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">FINX - Global X FinTech ETF <span class="stars">⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 핀테크 순수 플레이</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">ARKF - ARK Fintech Innovation ETF</div>
+                        <div class="company-desc">✓ 혁신적 금융 서비스</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">BLOK - Amplify Blockchain ETF</div>
+                        <div class="company-desc">✓ 블록체인 기술 전문</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">규제 강화, 암호화폐 변동성, 사이버보안 위협</div>
+                </div>
+            </div>
+
+            <!-- 6. 청정 에너지 및 인프라 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">⚡</span>
+                    <div>
+                        <div class="sector-title">6. 청정 에너지 및 인프라</div>
+                        <div style="opacity: 0.7;">넷제로 전환, AI 데이터센터 수요 급증</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">넷제로 전환으로 재생에너지 급증</div>
+                    <div class="metric">수소, 소형 원자로 수요 증가</div>
+                    <div class="metric">AI 데이터센터 에너지 인프라 급증</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>청정 에너지 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">넥스트에라 에너지 <span class="ticker">NEE</span></div>
+                        <div class="company-desc">✓ 미국 내 풍력 및 태양광 선두</div>
+                        <div class="company-desc">✓ 청정 에너지 분야의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>청정 에너지 주요 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">블룸 에너지 <span class="ticker">BE</span></div>
+                        <div class="company-desc">✓ 청정 에너지용 수소 연료전지 개발</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">플러그 파워 <span class="ticker">PLUG</span></div>
+                        <div class="company-desc">✓ 청정 에너지용 수소 연료전지 개발</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">오클로</div>
+                        <div class="company-desc">✓ 소형 모듈 원자로로 원자력 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">뉴스케일파워 <span class="ticker">SMR</span></div>
+                        <div class="company-desc">✓ 소형 모듈 원자로로 원자력 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">탈런 에너지</div>
+                        <div class="company-desc">✓ 원자력 연료 공급망 지원</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">센트러스 에너지 <span class="ticker">LEU</span></div>
+                        <div class="company-desc">✓ 원자력 연료 공급망 지원</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">GE 버노바 <span class="ticker">GEV</span></div>
+                        <div class="company-desc">✓ 재생에너지 및 그리드 솔루션 제공</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">비스트라 에너지 <span class="ticker">VST</span></div>
+                        <div class="company-desc">✓ 청정 에너지 발전 집중</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">컨스털레이션 에너지 <span class="ticker">CEG</span></div>
+                        <div class="company-desc">✓ 청정 에너지 발전 집중</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">버티브 홀딩스 <span class="ticker">VRT</span></div>
+                        <div class="company-desc">✓ 에너지 효율적인 데이터센터 인프라 지원</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">존슨 콘트롤즈 인터내셔널 <span class="ticker">JCI</span></div>
+                        <div class="company-desc">✓ 에너지 효율적인 데이터센터 인프라 지원</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">ICLN - iShares Global Clean Energy ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 글로벌 청정에너지 최대 규모</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">QCLN - First Trust Clean Edge ETF</div>
+                        <div class="company-desc">✓ 미국 청정기술 집중</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">URA - Global X Uranium ETF</div>
+                        <div class="company-desc">✓ 원자력 에너지 회귀</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">정책 변화, 높은 자본 비용, 그리드 통합 문제</div>
+                </div>
+            </div>
+
+            <!-- 7. 물 및 환경 기술 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">💧</span>
+                    <div>
+                        <div class="sector-title">7. 물 및 환경 기술</div>
+                        <div style="opacity: 0.7;">글로벌 물 부족, 환경 규제 강화</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">글로벌 물 부족과 환경 규제</div>
+                    <div class="metric">물 관리 및 처리 기술 투자 증가</div>
+                    <div class="metric">지속가능한 물 인프라 수요</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>물 기술 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">아메리칸 워터 웍스 <span class="ticker">AWK</span></div>
+                        <div class="company-desc">✓ 미국 최대 물 유틸리티, 안정적 수익</div>
+                        <div class="company-desc">✓ 물 관리 분야의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>환경 기술 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">자일럼 <span class="ticker">XYL</span></div>
+                        <div class="company-desc">✓ 물 처리 및 효율성 기술 선도</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">PHO - Invesco Water Resources ETF <span class="stars">⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 물 자원 관리 전문</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">PIO - Invesco Global Water ETF</div>
+                        <div class="company-desc">✓ 글로벌 물 기술</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">규제 변화, 인프라 투자 부족</div>
+                </div>
+            </div>
+
+            <!-- 8. 항공우주 및 방산 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">🛸</span>
+                    <div>
+                        <div class="sector-title">8. 항공우주 및 방산</div>
+                        <div style="opacity: 0.7;">지정학적 긴장, 상업 우주 시장 고성장</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">지정학적 긴장과 우주 탐사</div>
+                    <div class="metric">방산 및 항공우주 혁신 가속</div>
+                    <div class="metric">상업 우주 시장 고성장</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>항공우주/방산 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">록히드 마틴 <span class="ticker">LMT</span></div>
+                        <div class="company-desc">✓ 방산 및 항공우주 시스템 선도</div>
+                        <div class="company-desc">✓ 항공우주/방산 분야의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>우주/항공 주요 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">로켓 랩 <span class="ticker">RKLB</span></div>
+                        <div class="company-desc">✓ 소형 위성 발사 혁신</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">버진 갤럭틱 <span class="ticker">SPCE</span></div>
+                        <div class="company-desc">✓ 상업 우주 및 위성 연결 선구자</div>
+                    </div>
+                    <div class="company-item">
+                        <div class="company-name">AST 스페이스모바일 <span class="ticker">ASTS</span></div>
+                        <div class="company-desc">✓ 상업 우주 및 위성 연결 선구자</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">ITA - iShares Aerospace & Defense ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 항공우주 및 방산 전반 포괄</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">PPA - Invesco Aerospace & Defense ETF</div>
+                        <div class="company-desc">✓ 항공우주 및 방산 전반 포괄</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">UFO - Procure Space ETF</div>
+                        <div class="company-desc">✓ 순수 우주 산업 집중</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">예산 제약, 규제 지연, 높은 R&D 비용</div>
+                </div>
+            </div>
+
+            <!-- 9. 데이터센터 및 네트워킹 -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <span class="sector-icon">🏢</span>
+                    <div>
+                        <div class="sector-title">9. 데이터센터 및 네트워킹</div>
+                        <div style="opacity: 0.7;">AI와 클라우드로 데이터센터 수요 급증</div>
+                    </div>
+                </div>
+                
+                <div class="market-data">
+                    <h4>📊 성장 동력</h4>
+                    <div class="metric">AI와 클라우드 컴퓨팅 급증</div>
+                    <div class="metric">데이터센터 및 고속 네트워킹 수요</div>
+                    <div class="metric">글로벌 데이터센터 투자 증가</div>
+                </div>
+
+                <div class="flagship-section">
+                    <h4>데이터센터 대장주</h4>
+                    <div class="flagship-item">
+                        <div class="flagship-name">아리스타 네트웍스 <span class="ticker">ANET</span></div>
+                        <div class="company-desc">✓ AI 데이터센터용 클라우드 네트워킹 선도</div>
+                        <div class="company-desc">✓ 데이터센터 네트워킹의 절대적 리더</div>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <h4>데이터센터 주요 종목</h4>
+                    <div class="company-item">
+                        <div class="company-name">디지털 리얼티 트러스트 <span class="ticker">DLR</span></div>
+                        <div class="company-desc">✓ 데이터센터 부동산 주요 기업</div>
+                    </div>
+                </div>
+
+                <div class="etf-section">
+                    <h4>추천 ETF</h4>
+                    <div class="etf-item">
+                        <div class="etf-name">DTCR - Global X Data Center & Digital Infrastructure ETF <span class="stars">⭐⭐⭐⭐⭐</span></div>
+                        <div class="company-desc">✓ 데이터센터 전문 ETF</div>
+                    </div>
+                    <div class="etf-item">
+                        <div class="etf-name">VDC - Vanguard Consumer Discretionary ETF</div>
+                        <div class="company-desc">✓ 디지털 인프라 포함</div>
+                    </div>
+                </div>
+
+                <div class="risk-warning">
+                    <h5>⚠️ 리스크</h5>
+                    <div style="font-size: 0.9rem;">에너지 비용, 공급망 문제, 시장 포화</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 포트폴리오 추천 섹션 -->
+        <div style="background: linear-gradient(135deg, #064e3b, #0f766e); border-radius: 20px; padding: 30px; margin: 40px 0; box-shadow: 0 15px 35px rgba(6, 78, 59, 0.4);">
+            <h2 style="color: #6ee7b7; text-align: center; margin-bottom: 30px; font-size: 2.2rem;">🎯 2025년 포트폴리오 구성 권고안</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+                <div style="background: rgba(6, 78, 59, 0.6); border-radius: 15px; padding: 25px; border: 1px solid #047857;">
+                    <h3 style="color: #a7f3d0; margin-bottom: 20px; text-align: center;">🔥 핵심 보유 (40%)</h3>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span>1️⃣ AI 및 빅데이터</span>
+                            <span class="highlight">15%</span>
+                        </div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-left: 20px;">
+                            • NVDA (8%) + MSFT (4%) + AIQ ETF (3%)
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span>2️⃣ 반도체/양자컴퓨팅</span>
+                            <span class="highlight">15%</span>
+                        </div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-left: 20px;">
+                            • NVDA (8%) + IBM (4%) + QTUM ETF (3%)
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span>3️⃣ 청정에너지</span>
+                            <span class="highlight">10%</span>
+                        </div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-left: 20px;">
+                            • NEE (5%) + SMR (3%) + ICLN ETF (2%)
+                        </div>
+                    </div>
